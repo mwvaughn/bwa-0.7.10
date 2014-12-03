@@ -1,0 +1,131 @@
+{
+    "description": "Stampede is intended primarily for parallel applications scalable to tens of thousands of cores. Normal batch queues will enable users to run simulations up to 24 hours. Jobs requiring run times and more cores than allowed by the normal queues will be run in a special queue after approval of TACC staff. Serial and development queues will also be configured. In addition, users will be able to run jobs using thousands of the Intel Xeon Phi coprocessors via the same queues to support massively parallel workflows.",
+    "environment": null,
+    "executionType": "HPC",
+    "id": "stampede-11222014-1455-vaughn",
+    "login": {
+        "auth": {
+            "username": "vaughn",
+            "password": "MAHPASSWORD",
+            "credential": "",
+            "type": "PASSWORD"
+        },
+        "host": "stampede.tacc.utexas.edu",
+        "port": 22,
+        "protocol": "SSH"
+    },
+    "maxSystemJobs": 2147483647,
+    "maxSystemJobsPerUser": 2147483647,
+    "name": "TACC Stampede (vaughn)",
+    "public": false,
+    "queues": [
+        {
+            "name": "development",
+            "default": true,
+            "maxJobs": 1,
+            "maxUserJobs": 1,
+            "maxNodes": 16,
+            "maxProcessorsPerNode": 256,
+            "maxMemoryPerNode": "32GB",
+            "customDirectives": "-A iPlant-Collabs",
+            "maxRequestedTime": "02:00:00"
+        },
+        {
+            "name": "gpu-dev",
+            "default": false,
+            "maxJobs": 6,
+            "maxUserJobs": 1,
+            "maxNodes": 4,
+            "maxProcessorsPerNode": 64,
+            "maxMemoryPerNode": "32GB",
+            "customDirectives": "-A iPlant-Collabs",
+            "maxRequestedTime": "04:00:00"
+        },
+        {
+            "name": "gpu",
+            "default": false,
+            "maxJobs": 12,
+            "maxUserJobs": 12,
+            "maxNodes": 32,
+            "maxProcessorsPerNode": 512,
+            "maxMemoryPerNode": "32GB",
+            "customDirectives": "-A iPlant-Collabs",
+            "maxRequestedTime": "24:00:00"
+        },
+        {
+            "name": "normal",
+            "default": false,
+            "maxJobs": 50,
+            "maxUserJobs": 50,
+            "maxNodes": 256,
+            "maxProcessorsPerNode": 4096,
+            "maxMemoryPerNode": "32GB",
+            "customDirectives": "-A iPlant-Collabs",
+            "maxRequestedTime": "48:00:00"
+        },
+        {
+            "name": "serial",
+            "default": false,
+            "maxJobs": 16,
+            "maxUserJobs": 16,
+            "maxNodes": 1,
+            "maxProcessorsPerNode": 16,
+            "maxMemoryPerNode": "32GB",
+            "customDirectives": "-A iPlant-Collabs",
+            "maxRequestedTime": "12:00:00"
+        },
+        {
+            "name": "normal-mic",
+            "default": false,
+            "maxJobs": 50,
+            "maxUserJobs": 50,
+            "maxNodes": 256,
+            "maxProcessorsPerNode": 4096,
+            "maxMemoryPerNode": "32GB",
+            "customDirectives": "-A iPlant-Collabs",
+            "maxRequestedTime": "48:00:00"
+        },
+        {
+            "name": "normal-2mic",
+            "default": false,
+            "maxJobs": 50,
+            "maxUserJobs": 50,
+            "maxNodes": 128,
+            "maxProcessorsPerNode": 2048,
+            "maxMemoryPerNode": "32GB",
+            "customDirectives": "-A iPlant-Collabs",
+            "maxRequestedTime": "48:00:00"
+        },
+        {
+            "name": "largemem",
+            "maxRequestedTime": "48:00:00",
+            "default": false,
+            "maxJobs": 4,
+            "maxUserJobs": 4,
+            "maxNodes": 4,
+            "maxProcessorsPerNode": 128,
+            "maxMemoryPerNode": "1000GB",
+            "customDirectives": "-A iPlant-Collabs"
+        }
+    ],
+    "scheduler": "SLURM",
+    "scratchDir": "",
+    "site": "tacc.xsede.org",
+    "startupScript": "./bashrc",
+    "status": "UP",
+    "storage": {
+        "host": "stampede.tacc.utexas.edu",
+        "port": 22,
+        "protocol": "SFTP",
+        "rootDir": "/",
+        "homeDir": "/work/01374/vaughn",
+        "auth": {
+            "username": "vaughn",
+            "password": "MAHPASSWORD",
+            "credential": "",
+            "type": "PASSWORD"
+        }
+    },
+    "type": "EXECUTION",
+    "workDir": ""
+}
