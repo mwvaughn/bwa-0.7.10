@@ -44,7 +44,7 @@ if [[ "$IS_PAIRED" -eq 1 ]];
 then
 	QUERY2_F=$(basename ${QUERY2})
 	if [[ "$QUERY2_F" =~ .fq$ ]] || [[ "$QUERY2_F" =~ .fastq$ ]] || [[ "$QUERY2_F" =~ .fasta$ ]] || [[ "$QUERY2_F" =~ .fa$ ]]; then
-        split -l $SPLIT_COUNT --numeric-suffixes $QUERY1_F input1/query.
+        split -l $SPLIT_COUNT --numeric-suffixes $QUERY1_F input2/query.
         echo "$QUERY2_F was not compressed";
     elif [[ "$QUERY2_F" =~ .gz$ ]]; then
         bin/extract.sh $QUERY2_F | split -l $SPLIT_COUNT --numeric-suffixes - input2/query.
