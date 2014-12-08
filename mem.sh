@@ -16,12 +16,16 @@ QUERY1=${query1}
 QUERY2=${query2}
 CPUS=${IPLANT_CORES_REQUESTED}
 
-ARGS="${numThreads} ${mismatchTolerance} ${maxGapOpens} ${maxGapExtensions} ${noEndIndel} ${maxOccLongDeletion} ${seedLength} ${maxDifferenceSeed} ${maxEntriesQueue} ${mismatchPenalty} ${gapOpenPenalty} ${gapExtensionPenalty} ${stopSearching} ${qualityForTrimming} ${barCodeLength} ${logScaleGapPenalty} ${nonIterativeMode} ${illuminaLike}"
+
 
 # Determine pair-end or not
 IS_PAIRED=0
 if [[ -n "$QUERY1" && -n "$QUERY2" ]]; then let IS_PAIRED=1; echo "Paired-end"; fi
 
+ARGS="${numThreads} ${minSeedLength} ${bandWidth} ${offDiagX} ${triggerReseed} ${maxOccurence}"
+ARGS+=" ${isPaired} ${matchScore} ${maxEntriesQueue} ${mismatchPenalty} ${gapOpenPenalty} "
+ARGS+=" ${gapExtensionPenalty} ${clippingPenalty} ${unpairedPenalty} ${isInterleaved} ${rgHeaderLine} "
+ARGS+=" ${outputThreashold} ${outputAll} ${appendComments} ${useHardClipping} ${markShort} ${verbosity}"
 # Assume script is already running in a scratch directory
 # Create subdirectories for BWA workflow
 for I in input1 input2 temp
@@ -76,9 +80,9 @@ for C in input1/*
 do
 	ROOT=$(basename $C);
 	if [ "$IS_PAIRED" -eq 1 ]; then
-		echo "bwa aln ${ARGS} $REFERENCE_F input1/$ROOT > temp/$ROOT.1.sai && bwa aln ${ARGS} $REFERENCE_F input2/$ROOT > temp/$ROOT.2.sai && bwa sampe $REFERENCE_F temp/$ROOT.1.sai temp/$ROOT.2.sai input1/$ROOT input2/$ROOT | samtools view -bSu - | samtools sort -m $SORT_RAM - temp/${ROOT}.sorted" >> paramlist.aln
+		echo "bwa mem ${ARGS} $REFERENCE_F input1/$ROOT  input2/$ROOT | samtools view -bSu - | samtools sort -m $SORT_RAM - temp/${ROOT}.sorted" >> paramlist.aln
 	else
-		echo "bwa aln ${ARGS} $REFERENCE_F input1/$ROOT > temp/$ROOT.1.sai && bwa samse $REFERENCE_F temp/$ROOT.1.sai input1/$ROOT | samtools view -bSu - | samtools sort -m $SORT_RAM - temp/${ROOT}.sorted" >> paramlist.aln
+		echo "bwa mem ${ARGS} $REFERENCE_F input1/$ROOT | samtools view -bSu - | samtools sort -m $SORT_RAM - temp/${ROOT}.sorted" >> paramlist.aln
 	fi
 done
 
@@ -102,5 +106,5 @@ cd $OWD
 for M in bin $QUERY1_F $QUERY2_F $REFERENCE_F $REFERENCE_F.* input1 input2 temp .launcher
 do
 	echo "Cleaning $M"
-	# rm -rf $M
+	rm -rf $M
 done
