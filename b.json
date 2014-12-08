@@ -1,0 +1,77 @@
+{"name":"ericco92-bwa-mem",
+ "parallelism":"parallel",
+ "version":"0.7.10",
+ "helpURI":"http://bio-bwa.sourceforge.net/",
+ "label":"bwa mem",
+ "shortDescription":"bwa 0.7.10 is a next gen sequence aligner",
+ "longDescription":"",
+ "author":"Eric T Dawson",
+ "tags":["next-gen","aligner"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionSystem":"stampede-06212014-1555-ericd92",
+ "deploymentSystem":"data.iplantcollaborative.org",
+ "executionType":"HPC",
+ "deploymentPath":"/ericco92/applications/bwa-mem-0.7.10",
+ "templatePath":"mem.sh",
+ "testPath":"mem.sh",
+ "checkpointable":false,
+ "defaultQueue":"development",
+ "defaultValueNodeCount":1,
+ "defaultValueProcessorsPerNode": 4,
+ "modules":["purge", "load TACC", "load launcher"],
+ "inputs":[
+    {"id":"query1",
+     "value":
+        {"default":"/vaughn/development/bwa/SRR030257_1.fastq",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Query sequence 1",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/X-fastq", "http://sswapmeet.sswap.info/mime/application/X-bam"],
+         "minCardinality":1,
+         "maxCardinality":1,
+         "fileTypes":["fastq-0", "bam-0.1.2"]}},
+    {"id":"query2",
+     "value":
+        {"default":"/vaughn/development/bwa/SRR030257_2.fastq",
+         "required":false,
+         "visible":true},
+     "details":
+        {"label":"Query sequence 2",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/X-fastq"],
+         "minCardinality":1,
+         "maxCardinality":1,
+         "fileTypes":["fastq-0"]}},
+    {"id":"databaseFasta",
+     "value":
+        {"default":"/vaughn/development/bwa/NC_012967.1.fasta.zip",
+         "validator":".zip",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Genome database zip archive",
+         "description":"Zipped, flat archive containing Fasta and associated bwa index files"},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/application/Zip"],
+         "minCardinality":1,
+         "maxCardinality":1,
+         "fileTypes":["zip-0"]}}],
+ "parameters":[
+    
+        ],
+ "outputs":[
+    {"id":"outputSAM",
+     "value":
+        {"defaultValue":"bwa_output.bam",
+         "validator":""},
+     "details":
+        {"label":"BAM file",
+         "description":"Sequence alignment file"},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/X-sam"],
+         "fileType":"SAM-0.1.2"}}
+        ]}
