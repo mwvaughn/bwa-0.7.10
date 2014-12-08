@@ -92,7 +92,7 @@
             "defaultValue": 100,
             "required": false,
             "visible": true,
-            "type": "numbers"},
+            "type": "number"},
         "details":{
             "label": "Gaps longer than the specified band width value will not be found.",
             "argument": "-w ",
