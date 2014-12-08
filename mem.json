@@ -2,18 +2,18 @@
  "parallelism":"parallel",
  "version":"0.7.10",
  "helpURI":"http://bio-bwa.sourceforge.net/",
- "label":"bwa aln",
+ "label":"bwa mem",
  "shortDescription":"bwa 0.7.10 is a next gen sequence aligner",
  "longDescription":"",
- "author":"Matthew Vaughn",
+ "author":"Eric T Dawson",
  "tags":["next-gen","aligner"],
  "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
- "executionSystem":"stampede-11222014-1455-vaughn",
+ "executionSystem":"stampede-06212014-1555-ericd92",
  "deploymentSystem":"data.iplantcollaborative.org",
  "executionType":"HPC",
- "deploymentPath":"vaughn/applications/bwa-0.7.10",
- "templatePath":"aln.sh",
- "testPath":"aln.sh",
+ "deploymentPath":"ericco92/applications/bwa-mem-0.7.10",
+ "templatePath":"mem.sh",
+ "testPath":"mem.sh",
  "checkpointable":false,
  "defaultQueue":"development",
  "defaultValueNodeCount":1,
@@ -61,102 +61,6 @@
          "maxCardinality":1,
          "fileTypes":["zip-0"]}}],
  "parameters":[
-    {"id":"mismatchTolerance",
-     "value":
-        {"defaultValue":0.04,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Max #diff (int) or missing prob under 0.02 err rate (float)",
-         "argument":"-n ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:float"]}},
-    {"id":"maxGapOpens",
-     "value":
-        {"defaultValue":"1",
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Maximum number or fraction of gap opens",
-         "argument":"-o ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:float"]}},
-    {"id":"maxGapExtensions",
-     "value":
-        {"defaultValue":"-1",
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Maximum number of gap extensions, -1 for disabling long gaps",
-         "argument":"-e ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:short"]}},
-    {"id":"noEndIndel",
-     "value":
-        {"defaultValue":"5",
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Do not put an indel within INT bp towards the ends",
-         "argument":"-i ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"maxOccLongDeletion",
-     "value":
-        {"defaultValue":"10",
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Maximum occurrences for extending a long deletion",
-         "argument":"-d ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"seedLength",
-     "value":
-        {"defaultValue":32,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Seed length",
-         "argument":"-l ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"maxDifferenceSeed",
-     "value":
-        {"defaultValue":2,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Maximum differences in the seed",
-         "argument":"-k ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"maxEntriesQueue",
-     "value":
-        {"defaultValue":2000000,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Maximum entries in the queue",
-         "argument":"-m ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:int"]}},
     {"id":"numThreads",
      "value":
         {"defaultValue":4,
@@ -164,135 +68,273 @@
          "visible":true,
          "type":"number"},
      "details":
-        {"label":"Number of threads",
+        {"label":"Number of threads to spawn per BWA process.",
          "argument":"-t ",
          "showArgument":true },
      "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"mismatchPenalty",
-     "value":
-        {"defaultValue":3,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Mismatch penalty",
-         "argument":"-M ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"gapOpenPenalty",
-     "value":
-        {"defaultValue":11,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Gap open penalty",
-         "argument":"-O ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"gapExtensionPenalty",
-     "value":
-        {"defaultValue":4,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Gap extension penalty",
-         "argument":"-E ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"stopSearching",
-     "value":
-        {"defaultValue":30,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Stop searching when there are >INT equally best hits",
-         "argument":"-R ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"qualityForTrimming",
-     "value":
-        {"defaultValue":0,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Quality threshold for read trimming down to 35bp",
-         "argument":"-q ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"barCodeLength",
-     "value":
-        {"defaultValue":0,
-         "required":false,
-         "visible":true,
-         "type":"number"},
-     "details":
-        {"label":"Length of 5' barcode",
-         "argument":"-B ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:int"]}},
-    {"id":"logScaleGapPenalty",
-     "value":
-        {"defaultValue":false,
-         "validator":"",
-         "required":false,
-         "visible":true,
-         "type":"flag"},
-     "details":
-        {"label":"Log-scaled gap penalty for long deletions",
-         "argument":"-L ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:boolean"]}},
-    {"id":"nonIterativeMode",
-     "value":
-        {"defaultValue":false,
-         "validator":"",
-         "required":false,
-         "visible":true,
-         "type":"flag"},
-     "details":
-        {"label":"Non-iterative mode: search for all n-difference hits (slooow)",
-         "argument":"-N ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:boolean"]}},
-    {"id":"illuminaLike",
-     "value":
-        {"defaultValue":false,
-         "validator":"",
-         "required":false,
-         "visible":true,
-         "type":"flag"},
-     "details":
-        {"label":"Input is in the Illumina 1.3+ FASTQ-like format",
-         "argument":"-I ",
-         "showArgument":true },
-     "semantics":
-        {"ontology":["xs:boolean"]}},
-    {"id":"filterCasava",
-     "value":
-        {"defaultValue":false,
-         "validator":"",
-         "required":false,
-         "visible":true,
-         "type":"flag"},
-     "details":
-        {"label":"Filter Casava-filtered sequences",
-         "argument":"-Y ",
-         "showArgument":true},
-     "semantics":
-        {"ontology":["xs:boolean"]}} ],
+        {"ontology":["xs:integer"]}
+    },
+    {"id":"minSeedLength",
+        "value":{
+            "defaultValue":19,
+            "required":false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Minimum seed length for determining matches.",
+            "argument": "-k ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id":"bandWidth",
+        "value":{
+            "defaultValue": 100,
+            "required": false,
+            "visible": true,
+            "type": "numbers"},
+        "details":{
+            "label": "Gaps longer than the specified band width value will not be found.",
+            "argument": "-w ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "offDiagX",
+        "value":{
+            "defaultValue": 100,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Similar to BLAST's X-dropoff.",
+            "argument": "-d ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "triggerReseed",
+        "value":{
+            "defaultValue": 1.5,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Trigger reseed for mem longer than minSeedLength * value.",
+            "argument": "-r ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:float"]}
+    },
+    {"id": "maxOccurence",
+        "value":{
+            "defaultValue": 10000,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Discard a mem if it occurs more than INT occurences in the genome.",
+            "argument": "-c ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "isPaired",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Perform SW to rescue missing hits but do not find proper pair.",
+            "argument": "-P ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "matchScore",
+        "value":{
+            "defaultValue": 1,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The default score for a match.",
+            "argument": "-A ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "mismatchPenalty",
+        "value":{
+            "defaultValue": 4,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The mismatch penalty for scoring.",
+            "argument": "-B ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "gapOpenPenalty",
+        "value":{
+            "defaultValue": 6,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The gap open penalty for scoring.",
+            "argument": "-O ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "gapExtensionPenalty",
+        "value":{
+            "defaultValue": 1,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The gap extension penalty for scoring.",
+            "argument": "-E ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "clippingPenalty",
+        "value":{
+            "defaultValue": 5,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The clipping penalty for scoring.",
+            "argument": "-L ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "unpairedPenalty",
+        "value":{
+            "defaultValue": 9,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The penalty for an unpaired read pair.",
+            "argument": "-U ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "isInterleaved",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Use this flag if the mate pairs are interleaved into a single fasta file.",
+            "argument": "-p ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "rgHeaderLine",
+        "value":{
+            "defaultValue": "",
+            "required": false,
+            "visible": true,
+            "type": "string"},
+        "details":{
+            "label": "A full read-group header line. Make sure to escape tabs.",
+            "argument": "-R ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:string"]}
+    },
+    {"id": "outputThreshold",
+        "value":{
+            "defaultValue": 30,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Only output alignments with scores higher than INT.",
+            "argument": "-T ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:float"]}
+    },
+    {"id": "outputAll",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Output all secondary alignments.",
+            "argument": "-a ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "appendComments",
+        "value":{
+            "defaultValue": "",
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Append FASTA/FASTQ comments to SAM output.",
+            "argument": "-C ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:sboolean"]}
+    },
+    {"id": "useHardClipping",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Use hard clipping.",
+            "argument": "-H ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:sboolean"]}
+    },
+    {"id": "markShort",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Mark shorter hits as secondary for Picard compatability.",
+            "argument": "-M ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:sboolean"]}
+    },
+    {"id": "verbosity",
+        "value":{
+            "defaultValue": 3,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The level of verbosity for output.",
+            "argument": "-v ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    }
+        ],
  "outputs":[
     {"id":"outputSAM",
      "value":
@@ -303,4 +345,5 @@
          "description":"Sequence alignment file"},
      "semantics":
         {"ontology":["http://sswapmeet.sswap.info/mime/text/X-sam"],
-         "fileType":"SAM-0.1.2"}}]}
+         "fileType":"SAM-0.1.2"}}
+        ]}

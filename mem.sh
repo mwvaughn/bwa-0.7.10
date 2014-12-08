@@ -25,7 +25,7 @@ if [[ -n "$QUERY1" && -n "$QUERY2" ]]; then let IS_PAIRED=1; echo "Paired-end"; 
 ARGS="${numThreads} ${minSeedLength} ${bandWidth} ${offDiagX} ${triggerReseed} ${maxOccurence}"
 ARGS+=" ${isPaired} ${matchScore} ${maxEntriesQueue} ${mismatchPenalty} ${gapOpenPenalty} "
 ARGS+=" ${gapExtensionPenalty} ${clippingPenalty} ${unpairedPenalty} ${isInterleaved} ${rgHeaderLine} "
-ARGS+=" ${outputThreashold} ${outputAll} ${appendComments} ${useHardClipping} ${markShort} ${verbosity}"
+ARGS+=" ${outputThreshold} ${outputAll} ${appendComments} ${useHardClipping} ${markShort} ${verbosity}"
 # Assume script is already running in a scratch directory
 # Create subdirectories for BWA workflow
 for I in input1 input2 temp
