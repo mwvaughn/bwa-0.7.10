@@ -73,7 +73,21 @@
          "showArgument":true },
      "semantics":
         {"ontology":["xs:integer"]}
+    },
+    {"id":"minSeedLength",
+        "value":{
+            "defaultValue":19,
+            "required":false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Minimum seed length for determining matches.",
+            "argument": "-k ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
     }
+
         ],
  "outputs":[
     {"id":"outputSAM",
