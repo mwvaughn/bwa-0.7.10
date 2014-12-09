@@ -294,7 +294,7 @@
             "argument": "-C ",
             "showArgument": true},
         "semantics":
-            {"ontology":["xs:sboolean"]}
+            {"ontology":["xs:boolean"]}
     },
     {"id": "useHardClipping",
         "value":{
@@ -307,7 +307,7 @@
             "argument": "-H ",
             "showArgument": true},
         "semantics":
-            {"ontology":["xs:sboolean"]}
+            {"ontology":["xs:boolean"]}
     },
     {"id": "markShort",
         "value":{
@@ -320,7 +320,7 @@
             "argument": "-M ",
             "showArgument": true},
         "semantics":
-            {"ontology":["xs:sboolean"]}
+            {"ontology":["xs:boolean"]}
     },
     {"id": "verbosity",
         "value":{
