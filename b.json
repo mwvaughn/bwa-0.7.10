@@ -113,19 +113,6 @@
         "semantics":
             {"ontology":["xs:integer"]}
     },
-    {"id": "triggerReseed",
-        "value":{
-            "defaultValue": 1.5,
-            "required": false,
-            "visible": true,
-            "type": "number"},
-        "details":{
-            "label": "Trigger reseed for mem longer than minSeedLength * value.",
-            "argument": "-r ",
-            "showArgument": true},
-        "semantics":
-            {"ontology":["xs:float"]}
-    },
         {"id": "maxOccurence",
         "value":{
             "defaultValue": 10000,
