@@ -86,6 +86,19 @@
             "showArgument": true},
         "semantics":
             {"ontology":["xs:integer"]}
+    },
+    {"id":"bandWidth",
+        "value":{
+            "defaultValue": 100,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Gaps longer than the specified band width value will not be found.",
+            "argument": "-w ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
     }
 
         ],
