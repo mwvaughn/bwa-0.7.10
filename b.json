@@ -86,6 +86,58 @@
             "showArgument": true},
         "semantics":
             {"ontology":["xs:integer"]}
+    },
+    {"id":"bandWidth",
+        "value":{
+            "defaultValue": 100,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Gaps longer than the specified band width value will not be found.",
+            "argument": "-w ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "offDiagX",
+        "value":{
+            "defaultValue": 100,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Similar to BLAST's X-dropoff.",
+            "argument": "-d ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "triggerReseed",
+        "value":{
+            "defaultValue": 1.5,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Trigger reseed for mem longer than minSeedLength * value.",
+            "argument": "-r ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:float"]}
+    },
+        {"id": "maxOccurence",
+        "value":{
+            "defaultValue": 10000,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Discard a mem if it occurs more than INT occurences in the genome.",
+            "argument": "-c ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
     }
 
         ],
