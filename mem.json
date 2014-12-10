@@ -65,7 +65,7 @@
     {"id":"numThreads",
      "value":
         {"default": 4,
-         "omit_if_blank": true,
+         "Order": 0,
          "required":false,
          "visible":true,
          "type":"number"},
