@@ -87,18 +87,18 @@
         "semantics":
             {"ontology":["xs:integer"]}
     },
-    {"id": "triggerReseed",
+    {"id":"bandWidth",
         "value":{
-            "defaultValue": 1.5,
+            "defaultValue": 100,
             "required": false,
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Trigger reseed for mem longer than minSeedLength * value.",
-            "argument": "-r ",
+            "label": "Gaps longer than the specified value will not be found.",
+            "argument": "-w ",
             "showArgument": true},
         "semantics":
-            {"ontology":["xs:float"]}
+            {"ontology":["xs:integer"]}
     },
     {"id": "offDiagX",
         "value":{
@@ -113,6 +113,19 @@
         "semantics":
             {"ontology":["xs:integer"]}
     },
+    {"id": "triggerReseed",
+        "value":{
+            "defaultValue": 1.5,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Trigger reseed for mem longer than minSeedLength * value.",
+            "argument": "-r ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:float"]}
+    },
     {"id": "maxOccurence",
         "value":{
             "defaultValue": 10000,
@@ -120,7 +133,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Discard a mem occuring more than C times in the genome.",
+            "label": "Discard a mem if it occurs >INT times in the genome.",
             "argument": "-c ",
             "showArgument": true},
         "semantics":
@@ -133,11 +146,193 @@
             "visible": true,
             "type": "flag"},
         "details":{
-            "label": "Perform SW to rescue missing hits but do not find proper pair.",
+            "label": "Perform SW to rescue missing hits without pairing.",
             "argument": "-P ",
             "showArgument": true},
         "semantics":
             {"ontology":["xs:boolean"]}
+    },
+    {"id": "matchScore",
+        "value":{
+            "defaultValue": 1,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The default score for a match.",
+            "argument": "-A ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "mismatchPenalty",
+        "value":{
+            "defaultValue": 4,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The mismatch penalty for scoring.",
+            "argument": "-B ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "gapOpenPenalty",
+        "value":{
+            "defaultValue": 6,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The gap open penalty for scoring.",
+            "argument": "-O ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "gapExtensionPenalty",
+        "value":{
+            "defaultValue": 1,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The gap extension penalty for scoring.",
+            "argument": "-E ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "clippingPenalty",
+        "value":{
+            "defaultValue": 5,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The clipping penalty for scoring.",
+            "argument": "-L ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "unpairedPenalty",
+        "value":{
+            "defaultValue": 9,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The penalty for an unpaired read pair.",
+            "argument": "-U ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
+    {"id": "isInterleaved",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Reads are interleaved into a single fasta file.",
+            "argument": "-p ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "rgHeaderLine",
+        "value":{
+            "defaultValue": "",
+            "required": false,
+            "visible": true,
+            "type": "string"},
+        "details":{
+            "label": "A full read-group header line. Make sure to escape tabs.",
+            "argument": "-R ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:string"]}
+    },
+    {"id": "outputThreshold",
+        "value":{
+            "defaultValue": 30,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Only output alignments with scores higher than INT.",
+            "argument": "-T ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:float"]}
+    },
+    {"id": "outputAll",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Output all secondary alignments.",
+            "argument": "-a ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "appendComments",
+        "value":{
+            "defaultValue": "",
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Append FASTA/FASTQ comments to SAM output.",
+            "argument": "-C ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "useHardClipping",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Use hard clipping.",
+            "argument": "-H ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "markShort",
+        "value":{
+            "defaultValue": false,
+            "required": false,
+            "visible": true,
+            "type": "flag"},
+        "details":{
+            "label": "Mark shorter hits as secondary for Picard compatability.",
+            "argument": "-M ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:boolean"]}
+    },
+    {"id": "verbosity",
+        "value":{
+            "defaultValue": 3,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "The level of verbosity for output.",
+            "argument": "-v ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
     }
 
         ],
