@@ -99,6 +99,19 @@
             "showArgument": true},
         "semantics":
             {"ontology":["xs:float"]}
+    },
+    {"id": "offDiagX",
+        "value":{
+            "defaultValue": 100,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Similar to BLAST's X-dropoff.",
+            "argument": "-d ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
     }
 
         ],
