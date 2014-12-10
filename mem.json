@@ -286,7 +286,7 @@
     },
     {"id": "appendComments",
         "value":{
-            "default": "",
+            "default": false,
             "required": false,
             "visible": true,
             "type": "flag"},
