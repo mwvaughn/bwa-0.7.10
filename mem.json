@@ -64,7 +64,8 @@
  "parameters":[
     {"id":"numThreads",
      "value":
-        {
+        {"default": 4,
+         "omit_if_blank": true,
          "required":false,
          "visible":true,
          "type":"number"},
