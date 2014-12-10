@@ -68,7 +68,7 @@
          "omit_if_blank": true,
          "required":false,
          "visible":true,
-         "order": 1,
+         "order": 0,
          "type":"number"},
      "details":
         {"label":"Number of threads to spawn per BWA process [4]",
