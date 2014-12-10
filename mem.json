@@ -17,8 +17,8 @@
  "testPath":"mem.sh",
  "checkpointable":false,
  "defaultQueue":"development",
- "defaultValueNodeCount":1,
- "defaultValueProcessorsPerNode": 4,
+ "defaultNodeCount":1,
+ "defaultProcessorsPerNode": 4,
  "modules":["purge", "load TACC", "load launcher"],
  "inputs":[
     {"id":"query1",
@@ -68,7 +68,6 @@
          "omit_if_blank": true,
          "required":false,
          "visible":true,
-         "order": 0,
          "type":"number"},
      "details":
         {"label":"Number of threads to spawn per BWA process [4]",
@@ -79,7 +78,7 @@
     },
     {"id":"minSeedLength",
         "value":{
-            "defaultValue":19,
+            "default":19,
             "required":false,
             "visible": true,
             "type": "number"},
@@ -92,7 +91,7 @@
     },
     {"id":"bandWidth",
         "value":{
-            "defaultValue": 100,
+            "default": 100,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -105,7 +104,7 @@
     },
     {"id": "offDiagX",
         "value":{
-            "defaultValue": 100,
+            "default": 100,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -118,7 +117,7 @@
     },
     {"id": "triggerReseed",
         "value":{
-            "defaultValue": 1.5,
+            "default": 1.5,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -131,7 +130,7 @@
     },
     {"id": "maxOccurence",
         "value":{
-            "defaultValue": 10000,
+            "default": 10000,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -144,7 +143,7 @@
     },
     {"id": "isPaired",
         "value":{
-            "defaultValue": false,
+            "default": false,
             "required": false,
             "visible": true,
             "type": "flag"},
@@ -157,7 +156,7 @@
     },
     {"id": "matchScore",
         "value":{
-            "defaultValue": 1,
+            "default": 1,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -170,7 +169,7 @@
     },
     {"id": "mismatchPenalty",
         "value":{
-            "defaultValue": 4,
+            "default": 4,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -183,7 +182,7 @@
     },
     {"id": "gapOpenPenalty",
         "value":{
-            "defaultValue": 6,
+            "default": 6,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -196,7 +195,7 @@
     },
     {"id": "gapExtensionPenalty",
         "value":{
-            "defaultValue": 1,
+            "default": 1,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -209,7 +208,7 @@
     },
     {"id": "clippingPenalty",
         "value":{
-            "defaultValue": 5,
+            "default": 5,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -222,7 +221,7 @@
     },
     {"id": "unpairedPenalty",
         "value":{
-            "defaultValue": 9,
+            "default": 9,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -235,7 +234,7 @@
     },
     {"id": "isInterleaved",
         "value":{
-            "defaultValue": false,
+            "default": false,
             "required": false,
             "visible": true,
             "type": "flag"},
@@ -248,7 +247,7 @@
     },
     {"id": "rgHeaderLine",
         "value":{
-            "defaultValue": "",
+            "default": "",
             "required": false,
             "visible": true,
             "type": "string"},
@@ -261,7 +260,7 @@
     },
     {"id": "outputThreshold",
         "value":{
-            "defaultValue": 30,
+            "default": 30,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -274,7 +273,7 @@
     },
     {"id": "outputAll",
         "value":{
-            "defaultValue": false,
+            "default": false,
             "required": false,
             "visible": true,
             "type": "flag"},
@@ -287,7 +286,7 @@
     },
     {"id": "appendComments",
         "value":{
-            "defaultValue": "",
+            "default": "",
             "required": false,
             "visible": true,
             "type": "flag"},
@@ -300,7 +299,7 @@
     },
     {"id": "useHardClipping",
         "value":{
-            "defaultValue": false,
+            "default": false,
             "required": false,
             "visible": true,
             "type": "flag"},
@@ -313,7 +312,7 @@
     },
     {"id": "markShort",
         "value":{
-            "defaultValue": false,
+            "default": false,
             "required": false,
             "visible": true,
             "type": "flag"},
@@ -326,7 +325,7 @@
     },
     {"id": "verbosity",
         "value":{
-            "defaultValue": 3,
+            "default": 3,
             "required": false,
             "visible": true,
             "type": "number"},
@@ -342,7 +341,7 @@
  "outputs":[
     {"id":"outputSAM",
      "value":
-        {"defaultValue":"bwa_output.bam",
+        {"default":"bwa_output.bam",
          "validator":""},
      "details":
         {"label":"BAM file",
