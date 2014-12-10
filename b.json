@@ -120,7 +120,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Discard a mem if it occurs more than INT occurences in the genome.",
+            "label": "Discard a mem occuring more than C times in the genome.",
             "argument": "-c ",
             "showArgument": true},
         "semantics":
