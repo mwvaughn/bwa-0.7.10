@@ -64,12 +64,12 @@
  "parameters":[
     {"id":"numThreads",
      "value":
-        {"defaultValue":4,
+        {
          "required":false,
          "visible":true,
          "type":"number"},
      "details":
-        {"label":"Number of threads to spawn per BWA process",
+        {"label":"Number of threads to spawn per BWA process [4]",
          "argument":"-t ",
          "showArgument":true },
      "semantics":
