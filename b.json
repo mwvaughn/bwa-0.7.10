@@ -113,7 +113,19 @@
         "semantics":
             {"ontology":["xs:integer"]}
     },
-
+    {"id": "maxOccurence",
+        "value":{
+            "defaultValue": 10000,
+            "required": false,
+            "visible": true,
+            "type": "number"},
+        "details":{
+            "label": "Discard a mem if it occurs more than INT occurences in the genome.",
+            "argument": "-c ",
+            "showArgument": true},
+        "semantics":
+            {"ontology":["xs:integer"]}
+    },
     {"id": "isPaired",
         "value":{
             "defaultValue": false,
