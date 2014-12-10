@@ -1,4 +1,5 @@
 {"name":"bwa-mem",
+ "available": true,
  "parallelism":"parallel",
  "version":"0.7.10",
  "helpURI":"http://bio-bwa.sourceforge.net/",
