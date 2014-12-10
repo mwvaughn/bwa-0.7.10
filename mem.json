@@ -1,4 +1,4 @@
-{"name":"ericco92-bwa-mem",
+{"name":"bwa-mem",
  "available": true,
  "parallelism":"parallel",
  "version":"0.7.10",
@@ -69,7 +69,7 @@
          "visible":true,
          "type":"number"},
      "details":
-        {"label":"Number of threads to spawn per BWA process.",
+        {"label":"Number of threads to spawn per BWA process",
          "argument":"-t ",
          "showArgument":true },
      "semantics":
@@ -82,7 +82,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Minimum seed length for determining matches.",
+            "label": "Minimum seed length for determining matches",
             "argument": "-k ",
             "showArgument": true},
         "semantics":
@@ -95,7 +95,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Gaps longer than the specified band width value will not be found.",
+            "label": "Gaps longer than the specified value will not be found",
             "argument": "-w ",
             "showArgument": true},
         "semantics":
@@ -108,7 +108,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Similar to BLAST's X-dropoff.",
+            "label": "Similar to BLAST's X-dropoff",
             "argument": "-d ",
             "showArgument": true},
         "semantics":
@@ -121,7 +121,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Trigger reseed for mem longer than minSeedLength * value.",
+            "label": "Trigger reseed for mem longer than minSeedLength * value",
             "argument": "-r ",
             "showArgument": true},
         "semantics":
@@ -134,7 +134,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Discard a mem if it occurs more than INT occurences in the genome.",
+            "label": "Discard a mem if it occurs >INT times in the genome",
             "argument": "-c ",
             "showArgument": true},
         "semantics":
@@ -147,7 +147,7 @@
             "visible": true,
             "type": "flag"},
         "details":{
-            "label": "Perform SW to rescue missing hits but do not find proper pair.",
+            "label": "Perform SW to rescue missing hits without pairing",
             "argument": "-P ",
             "showArgument": true},
         "semantics":
@@ -160,7 +160,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "The default score for a match.",
+            "label": "The default score for a match",
             "argument": "-A ",
             "showArgument": true},
         "semantics":
@@ -173,7 +173,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "The mismatch penalty for scoring.",
+            "label": "The mismatch penalty for scoring",
             "argument": "-B ",
             "showArgument": true},
         "semantics":
@@ -186,7 +186,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "The gap open penalty for scoring.",
+            "label": "The gap open penalty for scoring",
             "argument": "-O ",
             "showArgument": true},
         "semantics":
@@ -199,7 +199,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "The gap extension penalty for scoring.",
+            "label": "The gap extension penalty for scoring",
             "argument": "-E ",
             "showArgument": true},
         "semantics":
@@ -212,7 +212,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "The clipping penalty for scoring.",
+            "label": "The clipping penalty for scoring",
             "argument": "-L ",
             "showArgument": true},
         "semantics":
@@ -225,7 +225,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "The penalty for an unpaired read pair.",
+            "label": "The penalty for an unpaired read pair",
             "argument": "-U ",
             "showArgument": true},
         "semantics":
@@ -238,7 +238,7 @@
             "visible": true,
             "type": "flag"},
         "details":{
-            "label": "Use this flag if the mate pairs are interleaved into a single fasta file.",
+            "label": "Reads are interleaved into a single fasta file",
             "argument": "-p ",
             "showArgument": true},
         "semantics":
@@ -251,7 +251,7 @@
             "visible": true,
             "type": "string"},
         "details":{
-            "label": "A full read-group header line. Make sure to escape tabs.",
+            "label": "A full read-group header line. Make sure to escape tabs",
             "argument": "-R ",
             "showArgument": true},
         "semantics":
@@ -264,7 +264,7 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "Only output alignments with scores higher than INT.",
+            "label": "Only output alignments with scores higher than INT",
             "argument": "-T ",
             "showArgument": true},
         "semantics":
@@ -277,7 +277,7 @@
             "visible": true,
             "type": "flag"},
         "details":{
-            "label": "Output all secondary alignments.",
+            "label": "Output all secondary alignments",
             "argument": "-a ",
             "showArgument": true},
         "semantics":
@@ -290,7 +290,7 @@
             "visible": true,
             "type": "flag"},
         "details":{
-            "label": "Append FASTA/FASTQ comments to SAM output.",
+            "label": "Append FASTA/FASTQ comments to SAM output",
             "argument": "-C ",
             "showArgument": true},
         "semantics":
@@ -303,7 +303,7 @@
             "visible": true,
             "type": "flag"},
         "details":{
-            "label": "Use hard clipping.",
+            "label": "Use hard clipping",
             "argument": "-H ",
             "showArgument": true},
         "semantics":
@@ -316,7 +316,7 @@
             "visible": true,
             "type": "flag"},
         "details":{
-            "label": "Mark shorter hits as secondary for Picard compatability.",
+            "label": "Mark shorter hits as secondary for Picard compatability",
             "argument": "-M ",
             "showArgument": true},
         "semantics":
@@ -329,12 +329,13 @@
             "visible": true,
             "type": "number"},
         "details":{
-            "label": "The level of verbosity for output.",
+            "label": "The level of verbosity for output",
             "argument": "-v ",
             "showArgument": true},
         "semantics":
             {"ontology":["xs:integer"]}
     }
+
         ],
  "outputs":[
     {"id":"outputSAM",
