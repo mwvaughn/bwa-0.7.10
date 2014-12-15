@@ -49,15 +49,15 @@
          "fileTypes":["fastq-0"]}},
     {"id":"databaseFasta",
      "value":
-        {"default":"/vaughn/development/bwa/NC_012967.1.fasta.zip",
-         "validator":"",
+        {"default":"/work/02057/ericd92/sandbox/e_coli_index.tgz",
+         "validator":"tar.gz$|tar.bz2$|tgz$",
          "required":true,
          "visible":true},
      "details":
         {"label":"Genome database zip archive",
          "description":"Zipped, flat archive containing Fasta and associated bwa index files"},
      "semantics":
-        {"ontology":["http://sswapmeet.sswap.info/mime/application/Zip"],
+        {"ontology":["http://sswapmeet.sswap.info/mime/application/X-tar"],
          "minCardinality":1,
          "maxCardinality":1,
          "fileTypes":["zip-0"]}}],

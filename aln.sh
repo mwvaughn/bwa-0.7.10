@@ -102,5 +102,5 @@ cd $OWD
 for M in bin $QUERY1_F $QUERY2_F $REFERENCE_F $REFERENCE_F.* input1 input2 temp .launcher
 do
 	echo "Cleaning $M"
-	# rm -rf $M
+	rm -rf $M
 done

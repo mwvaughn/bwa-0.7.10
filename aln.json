@@ -11,7 +11,7 @@
  "executionSystem":"stampede-06212014-1555-ericd92",
  "deploymentSystem":"data.iplantcollaborative.org",
  "executionType":"HPC",
- "deploymentPath":"ericco92/applications/bwa-0.7.10",
+ "deploymentPath":"ericco92/applications/bwa-aln-0.7.10",
  "templatePath":"aln.sh",
  "testPath":"aln.sh",
  "checkpointable":false,
@@ -48,15 +48,15 @@
          "fileTypes":["fastq-0"]}},
     {"id":"databaseFasta",
      "value":
-        {"default":"/vaughn/development/bwa/NC_012967.1.fasta.zip",
-         "validator":".zip",
+        {"default":"/work/02057/ericd92/sandbox/e_coli_index.tgz",
+         "validator":"tar.gz$|tgz$|bz2$",
          "required":true,
          "visible":true},
      "details":
         {"label":"Genome database zip archive",
          "description":"Zipped, flat archive containing Fasta and associated bwa index files"},
      "semantics":
-        {"ontology":["http://sswapmeet.sswap.info/mime/application/Zip"],
+        {"ontology":["http://sswapmeet.sswap.info/mime/application/X-tar"],
          "minCardinality":1,
          "maxCardinality":1,
          "fileTypes":["zip-0"]}}],
@@ -75,7 +75,7 @@
         {"ontology":["xs:float"]}},
     {"id":"maxGapOpens",
      "value":
-        {"default":"1",
+        {"default":1,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -87,7 +87,7 @@
         {"ontology":["xs:float"]}},
     {"id":"maxGapExtensions",
      "value":
-        {"default":"-1",
+        {"default":-1,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -99,7 +99,7 @@
         {"ontology":["xs:short"]}},
     {"id":"noEndIndel",
      "value":
-        {"default":"5",
+        {"default":5,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -111,7 +111,7 @@
         {"ontology":["xs:int"]}},
     {"id":"maxOccLongDeletion",
      "value":
-        {"default":"10",
+        {"default":10,
          "required":false,
          "visible":true,
          "type":"number"},
