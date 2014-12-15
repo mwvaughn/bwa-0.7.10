@@ -62,7 +62,21 @@ GENOME_F_ARCHIVE=$REFERENCE_F
 TARGET="reference"
 EXTENSION="64.amb"
 mkdir -p ${TARGET}
-unzip -d ${TARGET} -q ${GENOME_F_ARCHIVE} && rm -rf ${GENOME_F_ARCHIVE}
+case ${GENOME_F_ARCHIVE} in
+*.tar.bz2)
+    tar xvjf ${GENOME_F_ARCHIVE} -C ${TARGET} ;;
+*.zip) 
+    unzip -d ${TARGET} -q ${GENOME_F_ARCHIVE} ;;
+*.tar.gz)
+    tar xvzf ${GENOME_F_ARCHIVE} -C ${TARGET} ;;
+*.tgz)
+    tar xvzf ${GENOME_F_ARCHIVE} -C ${TARGET} ;;
+*.tar)
+    tar xvf ${GENOME_F_ARCHIVE} -C ${TARGET} ;;
+esac
+
+rm -rf ${GENOME_F_ARCHIVE}
+
 REFERENCE_F=$(basename $(find ${TARGET}/ -name "*.${EXTENSION}" -print0) ".${EXTENSION}")
 REFERENCE_F="${TARGET}/$REFERENCE_F"
 echo $REFERENCE_F
