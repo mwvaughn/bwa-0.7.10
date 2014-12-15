@@ -50,7 +50,7 @@
     {"id":"databaseFasta",
      "value":
         {"default":"/vaughn/development/bwa/NC_012967.1.fasta.zip",
-         "validator":".zip",
+         "validator":"",
          "required":true,
          "visible":true},
      "details":
