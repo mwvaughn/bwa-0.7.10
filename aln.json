@@ -1,4 +1,4 @@
-{"name":"bwa-aln",
+{"name":"ericco92-bwa-aln",
  "parallelism":"parallel",
  "version":"0.7.10",
  "helpURI":"http://bio-bwa.sourceforge.net/",
@@ -8,16 +8,16 @@
  "author":"Matthew Vaughn",
  "tags":["next-gen","aligner"],
  "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
- "executionSystem":"stampede-11222014-1455-vaughn",
+ "executionSystem":"stampede-06212014-1555-ericd92",
  "deploymentSystem":"data.iplantcollaborative.org",
  "executionType":"HPC",
- "deploymentPath":"vaughn/applications/bwa-0.7.10",
+ "deploymentPath":"ericco92/applications/bwa-mem-0.7.10",
  "templatePath":"aln.sh",
  "testPath":"aln.sh",
  "checkpointable":false,
  "defaultQueue":"development",
- "defaultValueNodeCount":1,
- "defaultValueProcessorsPerNode": 4,
+ "defaultNodeCount":1,
+ "defaultProcessorsPerNode": 4,
  "modules":["purge", "load TACC", "load launcher"],
  "inputs":[
     {"id":"query1",
@@ -48,22 +48,22 @@
          "fileTypes":["fastq-0"]}},
     {"id":"databaseFasta",
      "value":
-        {"default":"/vaughn/development/bwa/NC_012967.1.fasta.zip",
-         "validator":".zip",
+        {"default":"/work/02057/ericd92/sandbox/e_coli_index.tgz",
+         "validator":"tar.gz$|tgz$|bz2$",
          "required":true,
          "visible":true},
      "details":
         {"label":"Genome database zip archive",
          "description":"Zipped, flat archive containing Fasta and associated bwa index files"},
      "semantics":
-        {"ontology":["http://sswapmeet.sswap.info/mime/application/Zip"],
+        {"ontology":["http://sswapmeet.sswap.info/mime/application/X-tar"],
          "minCardinality":1,
          "maxCardinality":1,
          "fileTypes":["zip-0"]}}],
  "parameters":[
     {"id":"mismatchTolerance",
      "value":
-        {"defaultValue":0.04,
+        {"default":0.04,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -75,7 +75,7 @@
         {"ontology":["xs:float"]}},
     {"id":"maxGapOpens",
      "value":
-        {"defaultValue":"1",
+        {"default":1,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -87,7 +87,7 @@
         {"ontology":["xs:float"]}},
     {"id":"maxGapExtensions",
      "value":
-        {"defaultValue":"-1",
+        {"default":-1,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -99,7 +99,7 @@
         {"ontology":["xs:short"]}},
     {"id":"noEndIndel",
      "value":
-        {"defaultValue":"5",
+        {"default":5,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -111,7 +111,7 @@
         {"ontology":["xs:int"]}},
     {"id":"maxOccLongDeletion",
      "value":
-        {"defaultValue":"10",
+        {"default":10,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -123,7 +123,7 @@
         {"ontology":["xs:int"]}},
     {"id":"seedLength",
      "value":
-        {"defaultValue":32,
+        {"default":32,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -135,7 +135,7 @@
         {"ontology":["xs:int"]}},
     {"id":"maxDifferenceSeed",
      "value":
-        {"defaultValue":2,
+        {"default":2,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -147,7 +147,7 @@
         {"ontology":["xs:int"]}},
     {"id":"maxEntriesQueue",
      "value":
-        {"defaultValue":2000000,
+        {"default":2000000,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -159,7 +159,7 @@
         {"ontology":["xs:int"]}},
     {"id":"numThreads",
      "value":
-        {"defaultValue":4,
+        {"default":4,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -171,7 +171,7 @@
         {"ontology":["xs:int"]}},
     {"id":"mismatchPenalty",
      "value":
-        {"defaultValue":3,
+        {"default":3,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -183,7 +183,7 @@
         {"ontology":["xs:int"]}},
     {"id":"gapOpenPenalty",
      "value":
-        {"defaultValue":11,
+        {"default":11,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -195,7 +195,7 @@
         {"ontology":["xs:int"]}},
     {"id":"gapExtensionPenalty",
      "value":
-        {"defaultValue":4,
+        {"default":4,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -207,7 +207,7 @@
         {"ontology":["xs:int"]}},
     {"id":"stopSearching",
      "value":
-        {"defaultValue":30,
+        {"default":30,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -219,7 +219,7 @@
         {"ontology":["xs:int"]}},
     {"id":"qualityForTrimming",
      "value":
-        {"defaultValue":0,
+        {"default":0,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -231,7 +231,7 @@
         {"ontology":["xs:int"]}},
     {"id":"barCodeLength",
      "value":
-        {"defaultValue":0,
+        {"default":0,
          "required":false,
          "visible":true,
          "type":"number"},
@@ -243,7 +243,7 @@
         {"ontology":["xs:int"]}},
     {"id":"logScaleGapPenalty",
      "value":
-        {"defaultValue":false,
+        {"default":false,
          "validator":"",
          "required":false,
          "visible":true,
@@ -256,7 +256,7 @@
         {"ontology":["xs:boolean"]}},
     {"id":"nonIterativeMode",
      "value":
-        {"defaultValue":false,
+        {"default":false,
          "validator":"",
          "required":false,
          "visible":true,
@@ -269,7 +269,7 @@
         {"ontology":["xs:boolean"]}},
     {"id":"illuminaLike",
      "value":
-        {"defaultValue":false,
+        {"default":false,
          "validator":"",
          "required":false,
          "visible":true,
@@ -282,7 +282,7 @@
         {"ontology":["xs:boolean"]}},
     {"id":"filterCasava",
      "value":
-        {"defaultValue":false,
+        {"default":false,
          "validator":"",
          "required":false,
          "visible":true,
@@ -296,7 +296,7 @@
  "outputs":[
     {"id":"outputSAM",
      "value":
-        {"defaultValue":"bwa_output.bam",
+        {"default":"bwa_output.bam",
          "validator":""},
      "details":
         {"label":"BAM file",
